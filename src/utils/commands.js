@@ -8,11 +8,45 @@ export const commands = {
     " clear      - clear the terminal"
   ],
 
-  about: [
-    " Information Technology professional",
-    " Backend / Systems / Web Development",
-    " Experience in real-time systems, servers, and infrastructure."
-  ],
+about: [
+  "╔══════════════════════════════════════════════════════════╗",
+  "║                    JAN JOSHUA - PROFILE                  ║",
+  "╚══════════════════════════════════════════════════════════╝",
+  "",
+  "  ▸ IT Professional with expertise in backend development,",
+  "    systems architecture, and real-time applications.",
+  "",
+  "  ▸ Technical Skills:",
+  "    • Languages: JavaScript (Node.js, React), Java, Python, C#",
+  "    • Backend: REST APIs, WebSocket, Socket.IO, SignalR",
+  "    • Frontend: React, Vite, TailwindCSS, React Native",
+  "    • Databases: MySQL, MongoDB, MariaDB, SQLite, SQL Server",
+  "    • Infrastructure: Linux (Ubuntu), VPS, Apache, Nginx,",
+  "      SSL/TLS, reverse proxy, firewall, shell scripting",
+  "    • IoT & Networking: RTSP, MQTT, IP cameras, CCTV systems",
+  "    • Digital Forensics: Autopsy, Wireshark, data recovery",
+  "",
+  "  ▸ Project Highlights:",
+  "    • Terminal Portfolio: Interactive command-line portfolio",
+  "      (React, Vite, TailwindCSS)",
+  "    • Document and Task monitoring System",
+  "    • Mobile Chat App: Node.js, React Native, WebRTC, WebSocket,",
+  "      MySQL/MariaDB",
+  "    • Remote Desktop App: Java, MySQL, SSL/TLS",
+  "    • Screen Monitoring Tool: .NET Core, SignalR, C#, SQL Server",
+  "",
+  "  ▸ Core Competencies:",
+  "    • Real‑time system design & implementation",
+  "    • Server setup, hardening, and optimization",
+  "    • Database design and performance tuning",
+  "    • Secure coding and encryption (SSL/TLS)",
+  "    • Cross‑platform development",
+  "",
+  "  ▸ Based: Philippines",
+  "  ▸ Contact: janjoshua1110@gmail.com",
+  "",
+  "  ▸ Open to collaboration and freelance opportunities."
+],
 
   skills: [
     " Programming:",
@@ -43,6 +77,7 @@ export const commands = {
     " Digital Forensics:",
     "   - Autopsy",
     "   - Wireshark",
+    "   - Magnet Axiom",
     "   - Data recovery & investigation"
   ],
 
