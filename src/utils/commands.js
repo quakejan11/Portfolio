@@ -45,27 +45,36 @@ export const commands = {
   ],
 
   projects: [
-    " 1. IP Camera Streaming System",
-    " 2. RFID Access Control System",
-    " Type: project 1 for more details"
+    "📁 Available Projects:",
+    "",
+    "  [1] This Portfolio",
+    "    └─ React, Vite, TailwindCSS",
+    "",
+    "  [2] Document and Task monitoring System",
+    "    └─ Node.js, MySQL, React, Vite, TailwindCSS, Socket.IO",
+    "",
+    "  [3] Mobile Chat App",
+    "    └─ Node.js, React Native, WebRTC, WebSocket, MySQL/MariaDB",
+    "",
+    "  [4] Remote Desktop App",
+    "    └─ Java, MySQL, Socket Programming, SSL/TLS",
+    "",
+    "  [5] Remote screen monitoring App",
+    "    └─ .NET Core, C#, SignalR, WebSocket, SQL Server",
+    "",
+    "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    "",
+    "📌 Click any [number] above or type:",
+    "  project 1    - View Portfolio details",
+    "  project 2    - View Document System",
+    "  project 3    - View Chat App",
+    "  project 4    - View Remote Desktop",
+    "  project 5    - View Screen Monitor"
   ],
 
   contact: [
     " Email: janjoshua1110@gmail.com",
-    " Location: Philippines",
-    " GitHub: github.com/yourname"
+    " Location: Blk2, Lot 19-A, Opal Street, Hilltown Residences, Fortune, Marikina 1812",
+    " Contact No.: +639171056495"
   ]
-};
-
-export const runCommand = (cmd, lines, setLines) => {
-  if (cmd === "clear") {
-    setLines([]);
-    return;
-  }
-
-  if (commands[cmd]) {
-    setLines((prev) => [...prev, ...commands[cmd]]);
-  } else {
-    setLines((prev) => [...prev, `Command not found: ${cmd}`]);
-  }
 };
