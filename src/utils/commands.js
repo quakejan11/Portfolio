@@ -5,9 +5,14 @@ export const commands = {
     " skills     - technical skills",
     " projects   - things I built",
     " contact    - how to reach me",
+    " cv         - download my CV",
     " clear      - clear the terminal"
   ],
-
+cv: [
+    "📄 Downloading Jan's CV...",
+    "If the download doesn't start automatically, click this link:",
+    "/Jan_Joshua_Bongo_CV.pdf"
+  ],
 about: [
   "╔══════════════════════════════════════════════════════════╗",
   "║                    JAN JOSHUA - PROFILE                  ║",
@@ -34,6 +39,7 @@ about: [
   "      MySQL/MariaDB",
   "    • Remote Desktop App: Java, MySQL, SSL/TLS",
   "    • Screen Monitoring Tool: .NET Core, SignalR, C#, SQL Server",
+  "",
   "",
   "  ▸ Core Competencies:",
   "    • Real‑time system design & implementation",
@@ -111,7 +117,7 @@ about: [
 
   contact: [
     " Email: janjoshua1110@gmail.com",
-    " Location: Blk2, Lot 19-A, Opal Street, Hilltown Residences, Fortune, Marikina 1812",
+    " Address: Fortune, Marikina, 1812",
     " Contact No.: +639171056495"
   ]
 };

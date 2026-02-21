@@ -4,7 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 const ProjectDetail = () => {
   const { id } = useParams();
   
-  // Project data
+  // Project data (demo field removed)
   const projects = {
     '1': {
       id: '1',
@@ -22,8 +22,7 @@ const ProjectDetail = () => {
       ],
       status: 'Completed',
       date: '2024',
-      image: '/commo.png', // Changed from '/projects/portfolio.jpg' to '/commo.png'
-      demo: 'https://your-portfolio.vercel.app',
+      image: '/commo.png', // Only used if id === '2', otherwise ignored
       challenges: 'Creating an authentic terminal feel while maintaining usability',
       learnings: 'React hooks, state management, terminal emulation logic'
     },
@@ -42,10 +41,9 @@ const ProjectDetail = () => {
         'User roles and permissions',
         'Analytics dashboard'
       ],
-      status: 'In Development',
+      status: 'Completed',
       date: '2024',
-      image: '/commo.png', // This one is correct
-      demo: null,
+      image: '/commo.png', // This is the screenshot that will be shown
       challenges: 'Real-time updates and complex data relationships',
       learnings: 'WebSocket implementation, complex database design'
     },
@@ -77,10 +75,9 @@ const ProjectDetail = () => {
         'Typing indicators',
         'Read receipts'
       ],
-      status: 'In Progress',
+      status: 'Halted',
       date: '2024',
-      image: '/commo.png', // Changed from '/projects/chat-app.jpg' to '/commo.png'
-      demo: null,
+      image: '/commo.png',
       challenges: 'WebRTC signaling server implementation, database optimization for real-time messages, cross-platform compatibility',
       learnings: 'WebSocket architecture, WebRTC peer connections, database indexing for chat history'
     },
@@ -110,10 +107,9 @@ const ProjectDetail = () => {
         'Screen sharing and recording',
         'Chat during remote sessions'
       ],
-      status: 'In Development',
+      status: 'Halted',
       date: '2024',
-      image: '/commo.png', // Changed from '/projects/remote-desktop.jpg' to '/commo.png'
-      demo: null,
+      image: '/commo.png',
       challenges: 'Low latency screen capture and transmission, concurrent connection handling, database optimization for session logs',
       learnings: 'Java socket programming, threading for concurrent connections, database connection pooling, encryption implementation'
     },
@@ -146,10 +142,9 @@ const ProjectDetail = () => {
         'Team performance metrics',
         'Privacy controls and permissions'
       ],
-      status: 'Planning',
+      status: 'On Development',
       date: '2024',
-      image: '/commo.png', // Changed from '/projects/screen-monitor.jpg' to '/commo.png'
-      demo: null,
+      image: '/commo.png',
       challenges: 'Real-time video streaming over WebSocket, SignalR connection management, database performance for continuous monitoring data',
       learnings: '.NET Core WebSocket implementation, SignalR for real-time features, C# async programming patterns'
     }
@@ -287,37 +282,29 @@ const ProjectDetail = () => {
                 <span className="text-sm">📸 SCREENSHOT</span>
               </div>
               
-              {/* Screenshop - NOW SHOWING ACTUAL IMAGE */}
               <div className="bg-zinc-900 rounded-lg p-4 border border-green-400/30">
-                <img 
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full rounded-lg border border-green-400"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/commo.png';
-                  }}
-                />
-              </div>
-
-              {/* Quick Actions - Demo only, no GitHub */}
-              <div className="mt-4 flex gap-2">
-                {project.demo && (
-                  <a 
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center px-3 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-black text-sm transition-colors"
-                  >
-                    🚀 Live Demo
-                  </a>
-                )}
-                {!project.demo && (
-                  <div className="flex-1 text-center px-3 py-2 border border-green-400/30 text-green-600 rounded text-sm">
-                    🔒 Demo coming soon
+                {id === '2' ? (
+                  // Show actual image only for Project 2
+                  <img 
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full rounded-lg border border-green-400"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/commo.png';
+                    }}
+                  />
+                ) : (
+                  // NDA message for all other projects
+                  <div className="aspect-video bg-black flex items-center justify-center border border-green-400/50 rounded p-6 text-center">
+                    <span className="text-green-500 text-sm">
+                      ⚠️ Cannot show screenshots due to Non-Disclosure Agreement
+                    </span>
                   </div>
                 )}
               </div>
+
+              {/* Quick Actions section removed */}
             </div>
 
             {/* Right Column - Project Info */}

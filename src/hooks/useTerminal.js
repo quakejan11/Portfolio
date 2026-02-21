@@ -25,6 +25,26 @@ export const useTerminal = (initialLines) => {
       }
     }
 
+    // Handle CV download
+    if (cmd === "cv") {
+      // Trigger download
+      const link = document.createElement('a');
+      link.href = '/Jan_Joshua_Bongo_CV.pdf'; // make sure this file exists in public folder
+      link.download = 'Jan_Joshua_Bongo_CV.pdf'; // suggested filename for download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Show the cv message from commands (if defined)
+      if (commands.cv) {
+        setLines((prev) => [...prev, ...commands.cv]);
+      } else {
+        setLines((prev) => [...prev, "📄 Downloading CV...", "/Jan_Joshua_Bongo_CV.pdf"]);
+      }
+      return;
+    }
+
+    // General command lookup
     if (commands[cmd]) {
       setLines((prev) => [...prev, ...commands[cmd]]);
     } else {

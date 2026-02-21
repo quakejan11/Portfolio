@@ -4,9 +4,57 @@ import { CommandInput } from './CommandInput';
 
 export const TerminalBody = ({ lines, input, setInput, handleSubmit, terminalEndRef }) => {
   
-  // Function to render lines with clickable project numbers
+  // Helper to render a line with clickable email addresses (opens Gmail compose)
+  const renderLineWithEmail = (line, index) => {
+    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    emailRegex.lastIndex = 0;
+
+    while ((match = emailRegex.exec(line)) !== null) {
+      const email = match[0];
+      const start = match.index;
+      const end = emailRegex.lastIndex;
+
+      // Add text before email
+      if (start > lastIndex) {
+        parts.push(line.substring(lastIndex, start));
+      }
+
+      // Add clickable email that opens Gmail compose
+      parts.push(
+        <a
+          key={`${index}-email-${start}`}
+          href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-green-400 hover:text-green-300 underline"
+        >
+          {email}
+        </a>
+      );
+
+      lastIndex = end;
+    }
+
+    // Add remaining text
+    if (lastIndex < line.length) {
+      parts.push(line.substring(lastIndex));
+    }
+
+    // If no emails found, return original line as plain text
+    if (parts.length === 0) {
+      return <div key={index}>{line}</div>;
+    }
+
+    return <div key={index}>{parts}</div>;
+  };
+
+  // Function to render lines with clickable project numbers and emails
   const renderLine = (line, index) => {
-    // Check if line contains a project number in format [1], [2], etc.
+    // First, check for project number in format [1], [2], etc.
     const projectMatch = line.match(/\[(\d+)\]/);
     
     if (projectMatch) {
@@ -30,7 +78,8 @@ export const TerminalBody = ({ lines, input, setInput, handleSubmit, terminalEnd
       );
     }
     
-    return <div key={index}>{line}</div>;
+    // No project number, check for emails
+    return renderLineWithEmail(line, index);
   };
 
   return (
